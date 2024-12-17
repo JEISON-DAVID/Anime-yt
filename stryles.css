@@ -1,0 +1,265 @@
+/* Aseguramos que el cuerpo ocupe al menos toda la altura de la ventana */
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Ocupa toda la altura de la ventana */
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background-color: #1A1A1A;
+  color: #FFFFFF;
+}
+
+/* Encabezado */
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+  background-color: #000000;
+  color: #FFFFFF;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 10;
+}
+
+header .logo {
+  font-size: 1.5em;
+  font-weight: 800;
+  margin-left: 15px;  /* Ajusta el margen izquierdo a 15px (originalmente 20px) */
+  margin-right: 90px;
+  white-space: nowrap;
+}
+.menu-toggle {
+  font-size: 1.5em;
+  cursor: pointer;
+  color: #FFFFFF;
+  margin-right: 20px; /* Separar del borde */
+  transition: color 0.3s;
+}
+
+.menu-toggle:hover {
+  color: #FF6500;
+}
+
+/* Sidebar (Menú lateral) */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: -250px; /* Oculto inicialmente */
+  width: 250px;
+  height: 100%;
+  background-color: #000000;
+  padding-top: 60px; /* No sobrepone al encabezado */
+  transition: left 0.3s ease;
+  z-index: 100;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar ul li {
+  padding: 15px 20px;
+  border-bottom: 1px solid #1A1A1A;
+}
+
+.sidebar ul li a {
+  text-decoration: none;
+  color: #FFFFFF;
+  font-size: 1.2em;
+  transition: color 0.3s;
+}
+
+.sidebar ul li a:hover {
+  color: #FF6500;
+}
+
+/* Contenido principal */
+main {
+  flex: 1; /* Esto hace que el contenido principal ocupe el espacio disponible entre el encabezado y el pie de página */
+  margin-top: 70px; /* Evitar que se superponga con el encabezado */
+  padding: 20px;
+  color: #FFFFFF;
+}
+/* Banner */
+.banner {
+  background-image: url('https://media1.tenor.com/m/BCVzJQibQ_QAAAAC/beerus.gif');
+  background-size: cover;
+  background-position: center;
+  text-align: center;
+  padding: 100px 20px;
+  color: #FFFFFF;
+  position: relative;
+}
+
+.banner-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.banner-title {
+  font-size: 3em;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+.banner-description {
+  margin: 10px 0 20px;
+}
+
+.banner-buttons .btn {
+  padding: 10px 20px;
+  margin: 5px;
+  background-color: #FF6500;
+  color: #FFFFFF;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.banner-buttons .btn:hover {
+  background-color: #CC5200;
+}
+
+/* Secciones de Contenido */
+.content-section {
+  margin: 20px 0;
+  padding: 20px;
+}
+
+.content-section h2 {
+  margin-bottom: 10px;
+}
+
+.scrollable-row {
+  display: flex;
+  overflow-x: auto;
+}
+
+/* Tarjetas con miniaturas horizontales */
+.card {
+  margin: 10px;
+  background-color: #2A2A2A;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.6);
+}
+
+.card img {
+  width: 250px; /* Ajusta el ancho para formato horizontal */
+  height: 140px; /* Ajusta el alto para mantener proporción */
+  object-fit: cover;
+  border-radius: 10px; /* Opcional: mantiene bordes redondeados */
+}
+
+/* Pie de Página */
+footer {
+  background-color: #000000;
+  text-align: center;
+  padding: 20px;
+  position: relative;
+}
+
+.footer-links a {
+  margin: 0 10px;
+  text-decoration: none;
+  color: #FFFFFF;
+  transition: color 0.3s;
+}
+
+.footer-links a:hover {
+  color: #FF6500;
+}
+
+.social-icons img {
+  width: 30px;
+  margin: 0 5px;
+}
+@media (max-width: 768px) {
+  /* Aseguramos que el logo sea más pequeño en pantallas más pequeñas */
+  header .logo {
+    font-size: 1.2em;
+    margin-right: 60px;
+  }
+
+  /* El menú lateral ocupa el 100% del ancho en pantallas pequeñas */
+  .sidebar {
+    width: 100%;
+    left: -100%; /* Inicialmente está oculto */
+  }
+
+  /* Ajustar el tamaño de las imágenes de las tarjetas */
+  .card img {
+    width: 200px;
+    height: 120px;
+  }
+
+  /* Banner */
+  .banner {
+    padding: 80px 10px; /* Reducir el padding del banner */
+  }
+
+  .banner-title {
+    font-size: 2.5em; /* Reducir el tamaño de la fuente */
+  }
+
+  .banner-description {
+    font-size: 1em; /* Reducir el tamaño del texto */
+  }
+
+  .banner-buttons .btn {
+    padding: 8px 15px;
+    font-size: 0.9em;
+  }
+
+  /* Contenido */
+  main {
+    padding: 15px; /* Ajustar el padding */
+  }
+
+  /* Pie de página */
+  footer {
+    padding: 10px; /* Reducir el padding del pie de página */
+  }
+}
+
+/* Media Query para pantallas muy pequeñas (móviles) */
+@media (max-width: 480px) {
+  header .logo {
+    font-size: 1.1em; /* Ajustar aún más el tamaño del logo */
+  }
+
+  .menu-toggle {
+    font-size: 1.2em; /* Reducir el tamaño del ícono de menú */
+  }
+
+  .banner-title {
+    font-size: 2em; /* Ajustar el tamaño de la fuente */
+  }
+
+  .banner-description {
+    font-size: 0.9em; /* Ajustar el tamaño del texto */
+  }
+
+  .banner-buttons .btn {
+    padding: 6px 12px; /* Reducir el tamaño de los botones */
+  }
+
+  .scrollable-row {
+    flex-direction: column; /* Hacer que las tarjetas se apilen verticalmente */
+  }
+
+  .card {
+    margin: 5px;
+    width: 100%; /* Hacer las tarjetas más grandes en pantallas pequeñas */
+  }
+}

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AnimeStream</title>
+  <link rel="stylesheet" href="stryles.css">
+  
+</head>
+<body>
+  <!-- Encabezado -->
+<header>
+  <div class="menu-toggle" id="menu-toggle">☰</div>
+  <div class="logo">Anime YT</div>
+</header>
+
+<!-- Menú lateral -->
+<nav class="sidebar" id="sidebar">
+  <ul>
+    <li><a href="#">Inicio</a></li>
+    <li><a href="#">Series</a></li>
+    <li><a href="#">Películas</a></li>
+    <li><a href="#">Géneros</a></li>
+    <li><a href="#">Mi Lista</a></li>
+  </ul>
+</nav>
+
+  <!-- Banner Principal -->
+  <section class="banner">
+    <div class="banner-content">
+      <h1 class="banner-title">DRAGÓN BALL </h1>
+      <p class="banner-description">Un emocionante anime lleno de acción, misterio y giros inesperados.</p>
+      <div class="banner-buttons">
+        <button class="btn btn-watch">Ver Ahora</button>
+        <button class="btn btn-add">Añadir a Mi Lista</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Secciones de Contenido -->
+  <main>
+    <section class="content-section">
+      <h2>Nuevos Episodios</h2>
+      <div class="scrollable-row">
+        <!-- Miniaturas de episodios -->
+        <div class="card">
+          <img src="https://beam-images.warnermediacdn.com/BEAM_LWM_DELIVERABLES/ca31f03f-2fd4-4c07-ad8e-2e5e8ccd1053/948140c6-2b91-44ab-9a35-dfd9bcf0c01b?host=wbd-images.prod-vod.h264.io&partner=beamcom">
+          <p>Episodio 1</p>
+        </div>
+        <div class="card">
+          <img src="https://imgsrv.crunchyroll.com/cdn-cgi/image/fit=contain,format=auto,quality=85,width=1200,height=675/catalog/crunchyroll/0273e80242d80b0218f640e038269c18.jpg" alt="Episodio 2">
+          <p>Episodio 2</p>
+        </div>
+        <!-- Agregar más tarjetas -->
+      </div>
+    </section>
+
+    <section class="content-section">
+      <h2>Series Populares</h2>
+      <div class="scrollable-row">
+        <!-- Miniaturas de series -->
+        <div class="card">
+          <img src="https://imgsrv.crunchyroll.com/cdn-cgi/image/fit=contain,format=auto,quality=85,width=640,height=360/catalog/crunchyroll/3a1254f863bf0c9315086d37911c66df.jpg" alt="Serie 1">
+          <p>Serie 1</p>
+        </div>
+        <div class="card">
+          <img src="https://fotografias-neox.atresmedia.com/clipping/cmsimages01/2022/09/30/958BA933-B299-4DF6-9A68-6A1713DE9747/lookism_98.jpg?crop=1280,720,x0,y0&width=1900&height=1069&optimize=high&format=webply" alt="Serie 2">
+          <p>Serie 2</p>
+        </div>
+        <!-- Agregar más tarjetas -->
+      </div>
+    </section>
+
+    <section class="content-section">
+      <h2>Recomendaciones para Ti</h2>
+      <div class="scrollable-row">
+        <!-- Miniaturas personalizadas -->
+        <div class="card">
+          <img src="https://fotografias-neox.atresmedia.com/clipping/cmsimages01/2022/09/30/958BA933-B299-4DF6-9A68-6A1713DE9747/lookism_98.jpg?crop=1280,720,x0,y0&width=1900&height=1069&optimize=high&format=webply" alt="Recomendado 1">
+          <p>Recomendado 1</p>
+        </div>
+        <div class="card">
+          <img src="https://fotografias-neox.atresmedia.com/clipping/cmsimages01/2022/09/30/958BA933-B299-4DF6-9A68-6A1713DE9747/lookism_98.jpg?crop=1280,720,x0,y0&width=1900&height=1069&optimize=high&format=webply" alt="Recomendado 2">
+          <p>Recomendado 2</p>
+        </div>
+        <!-- Agregar más tarjetas -->
+      </div>
+    </section>
+  </main>
+
+  <!-- Pie de Página -->
+  <footer>
+    <div class="footer-links">
+      <a href="#">Acerca de Nosotros</a>
+      <a href="#">Términos de Servicio</a>
+      <a href="#">Política de Privacidad</a>
+      <a href="#">Contacto</a>
+    </div>
+    <div class="social-icons">
+      <a href="#"><img src="https://img.icons8.com/color/48/facebook-new.png" alt="Facebook"></a>
+      <a href="#"><img src="https://icons8.com/icon/ULM26f07x6SD/twitter" alt="Twitter"></a>
+      <a href="#"><img src="instagram-icon.png" alt="Instagram"></a>
+    </div>
+  </footer>
+  <script>
+// Selecciona el botón de menú y el menú lateral
+const menuToggle = document.getElementById('menu-toggle');
+const sidebar = document.getElementById('sidebar');
+
+// Variable para rastrear si el menú está abierto o cerrado
+let isMenuOpen = false;
+
+menuToggle.addEventListener('click', (e) => {
+  // Prevenir que el clic en el menú afecte el evento
+  e.stopPropagation();
+  
+  // Cambia entre mostrar y ocultar el menú
+  if (isMenuOpen) {
+    sidebar.style.left = '-250px'; // Ocultar menú
+    isMenuOpen = false;
+  } else {
+    sidebar.style.left = '0'; // Mostrar menú
+    isMenuOpen = true;
+  }
+});
+
+// Detectar clic fuera del menú para cerrarlo
+document.addEventListener('click', (e) => {
+  // Si el clic fue fuera del menú y el menú está abierto, cerrarlo
+  if (isMenuOpen && !sidebar.contains(e.target) && e.target !== menuToggle) {
+    sidebar.style.left = '-250px'; // Ocultar menú
+    isMenuOpen = false;
+  }
+});
+
+// Prevenir que el clic dentro del menú cierre el menú
+sidebar.addEventListener('click', (e) => {
+  e.stopPropagation();
+});
+</script>
+</body>
+</html>
